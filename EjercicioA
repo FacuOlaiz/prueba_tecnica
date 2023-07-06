@@ -1,5 +1,5 @@
 --A) Calcular Volumen de artículos inventariados en cada centro de distribución a fecha 2021-09-30
 
-SELECT COUNT(id)
+SELECT COUNT(id) as Volumen_articulos_inventariados_20210930
 FROM `bigquery-public-data.thelook_ecommerce.inventory_items`
 WHERE DATE_TRUNC(created_at, DAY) = TIMESTAMP('2021-09-30')
