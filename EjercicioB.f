@@ -3,11 +3,11 @@
 
 SELECT
   mes,
-  ROUND(SUM(aux_c),2) as Promedio_margen_beneficio_pedidos_entregados_2021
+  ROUND(SUM(aux_d),2) as Promedio_margen_beneficio_pedidos_entregados_2021
 FROM (
   SELECT 
     FORMAT_TIMESTAMP('%b', DATE_TRUNC(o.delivered_at, Month)) as mes,
-    (SUM(ii.product_retail_price)-SUM(ii.cost)) / COUNT(o.order_id) as aux_c
+    (SUM(ii.product_retail_price)-SUM(ii.cost)) / COUNT(o.order_id) as aux_d
   FROM `bigquery-public-data.thelook_ecommerce.orders` as o
   INNER JOIN `bigquery-public-data.thelook_ecommerce.order_items` as oi
   ON o.order_id = oi.order_id
